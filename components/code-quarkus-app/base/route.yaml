@@ -1,0 +1,23 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: code-quarkus-app
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: code-quarkus-app
+    app.kubernetes.io/part-of: test-app-165786872
+  name: code-quarkus-app
+  namespace: sbudhwar-1
+spec:
+  port:
+    targetPort: 8080
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: code-quarkus-app
+    weight: 100
+status: {}
